@@ -1,0 +1,8 @@
+# 统一换行符：仓库内一律存 LF，避免在 Windows 上编辑后被写成 CRLF
+* text=auto eol=lf
+
+# 二进制文件不做换行转换
+*.png binary
+*.jpg binary
+*.jar binary
+*.apk binary

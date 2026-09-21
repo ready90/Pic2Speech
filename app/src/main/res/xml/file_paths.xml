@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- 生成的 MP3 / SRT 存在 app 私有目录 files/out 下 -->
+    <files-path
+        name="out"
+        path="out/" />
+</paths>

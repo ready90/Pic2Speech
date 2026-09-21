@@ -1,0 +1,2611 @@
+{
+ "updated": "2026-09-21",
+ "languages_count": 142,
+ "voices_count": 322,
+ "languages": [
+  {
+   "code": "zh-CN",
+   "label": "中文 ｜ zh-CN",
+   "prompt_name": "中文",
+   "voices": [
+    {
+     "id": "zh-CN-XiaoxiaoNeural",
+     "nick": "Xiaoxiao",
+     "gender": "女"
+    },
+    {
+     "id": "zh-CN-XiaoyiNeural",
+     "nick": "Xiaoyi",
+     "gender": "女"
+    },
+    {
+     "id": "zh-CN-YunjianNeural",
+     "nick": "Yunjian",
+     "gender": "男"
+    },
+    {
+     "id": "zh-CN-YunxiNeural",
+     "nick": "Yunxi",
+     "gender": "男"
+    },
+    {
+     "id": "zh-CN-YunxiaNeural",
+     "nick": "Yunxia",
+     "gender": "男"
+    },
+    {
+     "id": "zh-CN-YunyangNeural",
+     "nick": "Yunyang",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "zh-HK",
+   "label": "粤语 ｜ zh-HK",
+   "prompt_name": "粤语",
+   "voices": [
+    {
+     "id": "zh-HK-HiuGaaiNeural",
+     "nick": "HiuGaai",
+     "gender": "女"
+    },
+    {
+     "id": "zh-HK-HiuMaanNeural",
+     "nick": "HiuMaan",
+     "gender": "女"
+    },
+    {
+     "id": "zh-HK-WanLungNeural",
+     "nick": "WanLung",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "zh-TW",
+   "label": "繁体中文 ｜ zh-TW",
+   "prompt_name": "繁体中文",
+   "voices": [
+    {
+     "id": "zh-TW-HsiaoChenNeural",
+     "nick": "HsiaoChen",
+     "gender": "女"
+    },
+    {
+     "id": "zh-TW-HsiaoYuNeural",
+     "nick": "HsiaoYu",
+     "gender": "女"
+    },
+    {
+     "id": "zh-TW-YunJheNeural",
+     "nick": "YunJhe",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-US",
+   "label": "英语 ｜ en-US",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-US-AnaNeural",
+     "nick": "Ana",
+     "gender": "女"
+    },
+    {
+     "id": "en-US-AriaNeural",
+     "nick": "Aria",
+     "gender": "女"
+    },
+    {
+     "id": "en-US-AvaMultilingualNeural",
+     "nick": "AvaMultilingual",
+     "gender": "女"
+    },
+    {
+     "id": "en-US-AvaNeural",
+     "nick": "Ava",
+     "gender": "女"
+    },
+    {
+     "id": "en-US-EmmaMultilingualNeural",
+     "nick": "EmmaMultilingual",
+     "gender": "女"
+    },
+    {
+     "id": "en-US-EmmaNeural",
+     "nick": "Emma",
+     "gender": "女"
+    },
+    {
+     "id": "en-US-JennyNeural",
+     "nick": "Jenny",
+     "gender": "女"
+    },
+    {
+     "id": "en-US-MichelleNeural",
+     "nick": "Michelle",
+     "gender": "女"
+    },
+    {
+     "id": "en-US-AndrewMultilingualNeural",
+     "nick": "AndrewMultilingual",
+     "gender": "男"
+    },
+    {
+     "id": "en-US-AndrewNeural",
+     "nick": "Andrew",
+     "gender": "男"
+    },
+    {
+     "id": "en-US-BrianMultilingualNeural",
+     "nick": "BrianMultilingual",
+     "gender": "男"
+    },
+    {
+     "id": "en-US-BrianNeural",
+     "nick": "Brian",
+     "gender": "男"
+    },
+    {
+     "id": "en-US-ChristopherNeural",
+     "nick": "Christopher",
+     "gender": "男"
+    },
+    {
+     "id": "en-US-EricNeural",
+     "nick": "Eric",
+     "gender": "男"
+    },
+    {
+     "id": "en-US-GuyNeural",
+     "nick": "Guy",
+     "gender": "男"
+    },
+    {
+     "id": "en-US-RogerNeural",
+     "nick": "Roger",
+     "gender": "男"
+    },
+    {
+     "id": "en-US-SteffanNeural",
+     "nick": "Steffan",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-GB",
+   "label": "英语 ｜ en-GB",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-GB-LibbyNeural",
+     "nick": "Libby",
+     "gender": "女"
+    },
+    {
+     "id": "en-GB-MaisieNeural",
+     "nick": "Maisie",
+     "gender": "女"
+    },
+    {
+     "id": "en-GB-SoniaNeural",
+     "nick": "Sonia",
+     "gender": "女"
+    },
+    {
+     "id": "en-GB-RyanNeural",
+     "nick": "Ryan",
+     "gender": "男"
+    },
+    {
+     "id": "en-GB-ThomasNeural",
+     "nick": "Thomas",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ja-JP",
+   "label": "日语 ｜ ja-JP",
+   "prompt_name": "日语",
+   "voices": [
+    {
+     "id": "ja-JP-NanamiNeural",
+     "nick": "Nanami",
+     "gender": "女"
+    },
+    {
+     "id": "ja-JP-KeitaNeural",
+     "nick": "Keita",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ko-KR",
+   "label": "韩语 ｜ ko-KR",
+   "prompt_name": "韩语",
+   "voices": [
+    {
+     "id": "ko-KR-SunHiNeural",
+     "nick": "SunHi",
+     "gender": "女"
+    },
+    {
+     "id": "ko-KR-HyunsuMultilingualNeural",
+     "nick": "HyunsuMultilingual",
+     "gender": "男"
+    },
+    {
+     "id": "ko-KR-InJoonNeural",
+     "nick": "InJoon",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "fr-FR",
+   "label": "法语 ｜ fr-FR",
+   "prompt_name": "法语",
+   "voices": [
+    {
+     "id": "fr-FR-DeniseNeural",
+     "nick": "Denise",
+     "gender": "女"
+    },
+    {
+     "id": "fr-FR-EloiseNeural",
+     "nick": "Eloise",
+     "gender": "女"
+    },
+    {
+     "id": "fr-FR-VivienneMultilingualNeural",
+     "nick": "VivienneMultilingual",
+     "gender": "女"
+    },
+    {
+     "id": "fr-FR-HenriNeural",
+     "nick": "Henri",
+     "gender": "男"
+    },
+    {
+     "id": "fr-FR-RemyMultilingualNeural",
+     "nick": "RemyMultilingual",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "de-DE",
+   "label": "德语 ｜ de-DE",
+   "prompt_name": "德语",
+   "voices": [
+    {
+     "id": "de-DE-AmalaNeural",
+     "nick": "Amala",
+     "gender": "女"
+    },
+    {
+     "id": "de-DE-KatjaNeural",
+     "nick": "Katja",
+     "gender": "女"
+    },
+    {
+     "id": "de-DE-SeraphinaMultilingualNeural",
+     "nick": "SeraphinaMultilingual",
+     "gender": "女"
+    },
+    {
+     "id": "de-DE-ConradNeural",
+     "nick": "Conrad",
+     "gender": "男"
+    },
+    {
+     "id": "de-DE-FlorianMultilingualNeural",
+     "nick": "FlorianMultilingual",
+     "gender": "男"
+    },
+    {
+     "id": "de-DE-KillianNeural",
+     "nick": "Killian",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-ES",
+   "label": "西班牙语 ｜ es-ES",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-ES-ElviraNeural",
+     "nick": "Elvira",
+     "gender": "女"
+    },
+    {
+     "id": "es-ES-XimenaNeural",
+     "nick": "Ximena",
+     "gender": "女"
+    },
+    {
+     "id": "es-ES-AlvaroNeural",
+     "nick": "Alvaro",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ru-RU",
+   "label": "俄语 ｜ ru-RU",
+   "prompt_name": "俄语",
+   "voices": [
+    {
+     "id": "ru-RU-SvetlanaNeural",
+     "nick": "Svetlana",
+     "gender": "女"
+    },
+    {
+     "id": "ru-RU-DmitryNeural",
+     "nick": "Dmitry",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "pt-BR",
+   "label": "葡萄牙语 ｜ pt-BR",
+   "prompt_name": "葡萄牙语",
+   "voices": [
+    {
+     "id": "pt-BR-FranciscaNeural",
+     "nick": "Francisca",
+     "gender": "女"
+    },
+    {
+     "id": "pt-BR-ThalitaMultilingualNeural",
+     "nick": "ThalitaMultilingual",
+     "gender": "女"
+    },
+    {
+     "id": "pt-BR-AntonioNeural",
+     "nick": "Antonio",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "it-IT",
+   "label": "意大利语 ｜ it-IT",
+   "prompt_name": "意大利语",
+   "voices": [
+    {
+     "id": "it-IT-ElsaNeural",
+     "nick": "Elsa",
+     "gender": "女"
+    },
+    {
+     "id": "it-IT-IsabellaNeural",
+     "nick": "Isabella",
+     "gender": "女"
+    },
+    {
+     "id": "it-IT-DiegoNeural",
+     "nick": "Diego",
+     "gender": "男"
+    },
+    {
+     "id": "it-IT-GiuseppeMultilingualNeural",
+     "nick": "GiuseppeMultilingual",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-SA",
+   "label": "阿拉伯语 ｜ ar-SA",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-SA-ZariyahNeural",
+     "nick": "Zariyah",
+     "gender": "女"
+    },
+    {
+     "id": "ar-SA-HamedNeural",
+     "nick": "Hamed",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "hi-IN",
+   "label": "印地语 ｜ hi-IN",
+   "prompt_name": "印地语",
+   "voices": [
+    {
+     "id": "hi-IN-SwaraNeural",
+     "nick": "Swara",
+     "gender": "女"
+    },
+    {
+     "id": "hi-IN-MadhurNeural",
+     "nick": "Madhur",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "th-TH",
+   "label": "泰语 ｜ th-TH",
+   "prompt_name": "泰语",
+   "voices": [
+    {
+     "id": "th-TH-PremwadeeNeural",
+     "nick": "Premwadee",
+     "gender": "女"
+    },
+    {
+     "id": "th-TH-NiwatNeural",
+     "nick": "Niwat",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "vi-VN",
+   "label": "越南语 ｜ vi-VN",
+   "prompt_name": "越南语",
+   "voices": [
+    {
+     "id": "vi-VN-HoaiMyNeural",
+     "nick": "HoaiMy",
+     "gender": "女"
+    },
+    {
+     "id": "vi-VN-NamMinhNeural",
+     "nick": "NamMinh",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "id-ID",
+   "label": "印尼语 ｜ id-ID",
+   "prompt_name": "印尼语",
+   "voices": [
+    {
+     "id": "id-ID-GadisNeural",
+     "nick": "Gadis",
+     "gender": "女"
+    },
+    {
+     "id": "id-ID-ArdiNeural",
+     "nick": "Ardi",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ms-MY",
+   "label": "马来语 ｜ ms-MY",
+   "prompt_name": "马来语",
+   "voices": [
+    {
+     "id": "ms-MY-YasminNeural",
+     "nick": "Yasmin",
+     "gender": "女"
+    },
+    {
+     "id": "ms-MY-OsmanNeural",
+     "nick": "Osman",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "tr-TR",
+   "label": "土耳其语 ｜ tr-TR",
+   "prompt_name": "土耳其语",
+   "voices": [
+    {
+     "id": "tr-TR-EmelNeural",
+     "nick": "Emel",
+     "gender": "女"
+    },
+    {
+     "id": "tr-TR-AhmetNeural",
+     "nick": "Ahmet",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "af-ZA",
+   "label": "南非荷兰语 ｜ af-ZA",
+   "prompt_name": "南非荷兰语",
+   "voices": [
+    {
+     "id": "af-ZA-AdriNeural",
+     "nick": "Adri",
+     "gender": "女"
+    },
+    {
+     "id": "af-ZA-WillemNeural",
+     "nick": "Willem",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "am-ET",
+   "label": "阿姆哈拉语 ｜ am-ET",
+   "prompt_name": "阿姆哈拉语",
+   "voices": [
+    {
+     "id": "am-ET-MekdesNeural",
+     "nick": "Mekdes",
+     "gender": "女"
+    },
+    {
+     "id": "am-ET-AmehaNeural",
+     "nick": "Ameha",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-AE",
+   "label": "阿拉伯语 ｜ ar-AE",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-AE-FatimaNeural",
+     "nick": "Fatima",
+     "gender": "女"
+    },
+    {
+     "id": "ar-AE-HamdanNeural",
+     "nick": "Hamdan",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-BH",
+   "label": "阿拉伯语 ｜ ar-BH",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-BH-LailaNeural",
+     "nick": "Laila",
+     "gender": "女"
+    },
+    {
+     "id": "ar-BH-AliNeural",
+     "nick": "Ali",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-DZ",
+   "label": "阿拉伯语 ｜ ar-DZ",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-DZ-AminaNeural",
+     "nick": "Amina",
+     "gender": "女"
+    },
+    {
+     "id": "ar-DZ-IsmaelNeural",
+     "nick": "Ismael",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-EG",
+   "label": "阿拉伯语 ｜ ar-EG",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-EG-SalmaNeural",
+     "nick": "Salma",
+     "gender": "女"
+    },
+    {
+     "id": "ar-EG-ShakirNeural",
+     "nick": "Shakir",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-IQ",
+   "label": "阿拉伯语 ｜ ar-IQ",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-IQ-RanaNeural",
+     "nick": "Rana",
+     "gender": "女"
+    },
+    {
+     "id": "ar-IQ-BasselNeural",
+     "nick": "Bassel",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-JO",
+   "label": "阿拉伯语 ｜ ar-JO",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-JO-SanaNeural",
+     "nick": "Sana",
+     "gender": "女"
+    },
+    {
+     "id": "ar-JO-TaimNeural",
+     "nick": "Taim",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-KW",
+   "label": "阿拉伯语 ｜ ar-KW",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-KW-NouraNeural",
+     "nick": "Noura",
+     "gender": "女"
+    },
+    {
+     "id": "ar-KW-FahedNeural",
+     "nick": "Fahed",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-LB",
+   "label": "阿拉伯语 ｜ ar-LB",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-LB-LaylaNeural",
+     "nick": "Layla",
+     "gender": "女"
+    },
+    {
+     "id": "ar-LB-RamiNeural",
+     "nick": "Rami",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-LY",
+   "label": "阿拉伯语 ｜ ar-LY",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-LY-ImanNeural",
+     "nick": "Iman",
+     "gender": "女"
+    },
+    {
+     "id": "ar-LY-OmarNeural",
+     "nick": "Omar",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-MA",
+   "label": "阿拉伯语 ｜ ar-MA",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-MA-MounaNeural",
+     "nick": "Mouna",
+     "gender": "女"
+    },
+    {
+     "id": "ar-MA-JamalNeural",
+     "nick": "Jamal",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-OM",
+   "label": "阿拉伯语 ｜ ar-OM",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-OM-AyshaNeural",
+     "nick": "Aysha",
+     "gender": "女"
+    },
+    {
+     "id": "ar-OM-AbdullahNeural",
+     "nick": "Abdullah",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-QA",
+   "label": "阿拉伯语 ｜ ar-QA",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-QA-AmalNeural",
+     "nick": "Amal",
+     "gender": "女"
+    },
+    {
+     "id": "ar-QA-MoazNeural",
+     "nick": "Moaz",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-SY",
+   "label": "阿拉伯语 ｜ ar-SY",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-SY-AmanyNeural",
+     "nick": "Amany",
+     "gender": "女"
+    },
+    {
+     "id": "ar-SY-LaithNeural",
+     "nick": "Laith",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-TN",
+   "label": "阿拉伯语 ｜ ar-TN",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-TN-ReemNeural",
+     "nick": "Reem",
+     "gender": "女"
+    },
+    {
+     "id": "ar-TN-HediNeural",
+     "nick": "Hedi",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ar-YE",
+   "label": "阿拉伯语 ｜ ar-YE",
+   "prompt_name": "阿拉伯语",
+   "voices": [
+    {
+     "id": "ar-YE-MaryamNeural",
+     "nick": "Maryam",
+     "gender": "女"
+    },
+    {
+     "id": "ar-YE-SalehNeural",
+     "nick": "Saleh",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "az-AZ",
+   "label": "阿塞拜疆语 ｜ az-AZ",
+   "prompt_name": "阿塞拜疆语",
+   "voices": [
+    {
+     "id": "az-AZ-BanuNeural",
+     "nick": "Banu",
+     "gender": "女"
+    },
+    {
+     "id": "az-AZ-BabekNeural",
+     "nick": "Babek",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "bg-BG",
+   "label": "保加利亚语 ｜ bg-BG",
+   "prompt_name": "保加利亚语",
+   "voices": [
+    {
+     "id": "bg-BG-KalinaNeural",
+     "nick": "Kalina",
+     "gender": "女"
+    },
+    {
+     "id": "bg-BG-BorislavNeural",
+     "nick": "Borislav",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "bn-BD",
+   "label": "孟加拉语 ｜ bn-BD",
+   "prompt_name": "孟加拉语",
+   "voices": [
+    {
+     "id": "bn-BD-NabanitaNeural",
+     "nick": "Nabanita",
+     "gender": "女"
+    },
+    {
+     "id": "bn-BD-PradeepNeural",
+     "nick": "Pradeep",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "bn-IN",
+   "label": "孟加拉语 ｜ bn-IN",
+   "prompt_name": "孟加拉语",
+   "voices": [
+    {
+     "id": "bn-IN-TanishaaNeural",
+     "nick": "Tanishaa",
+     "gender": "女"
+    },
+    {
+     "id": "bn-IN-BashkarNeural",
+     "nick": "Bashkar",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "bs-BA",
+   "label": "波斯尼亚语 ｜ bs-BA",
+   "prompt_name": "波斯尼亚语",
+   "voices": [
+    {
+     "id": "bs-BA-VesnaNeural",
+     "nick": "Vesna",
+     "gender": "女"
+    },
+    {
+     "id": "bs-BA-GoranNeural",
+     "nick": "Goran",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ca-ES",
+   "label": "加泰罗尼亚语 ｜ ca-ES",
+   "prompt_name": "加泰罗尼亚语",
+   "voices": [
+    {
+     "id": "ca-ES-JoanaNeural",
+     "nick": "Joana",
+     "gender": "女"
+    },
+    {
+     "id": "ca-ES-EnricNeural",
+     "nick": "Enric",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "cs-CZ",
+   "label": "捷克语 ｜ cs-CZ",
+   "prompt_name": "捷克语",
+   "voices": [
+    {
+     "id": "cs-CZ-VlastaNeural",
+     "nick": "Vlasta",
+     "gender": "女"
+    },
+    {
+     "id": "cs-CZ-AntoninNeural",
+     "nick": "Antonin",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "cy-GB",
+   "label": "威尔士语 ｜ cy-GB",
+   "prompt_name": "威尔士语",
+   "voices": [
+    {
+     "id": "cy-GB-NiaNeural",
+     "nick": "Nia",
+     "gender": "女"
+    },
+    {
+     "id": "cy-GB-AledNeural",
+     "nick": "Aled",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "da-DK",
+   "label": "丹麦语 ｜ da-DK",
+   "prompt_name": "丹麦语",
+   "voices": [
+    {
+     "id": "da-DK-ChristelNeural",
+     "nick": "Christel",
+     "gender": "女"
+    },
+    {
+     "id": "da-DK-JeppeNeural",
+     "nick": "Jeppe",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "de-AT",
+   "label": "德语 ｜ de-AT",
+   "prompt_name": "德语",
+   "voices": [
+    {
+     "id": "de-AT-IngridNeural",
+     "nick": "Ingrid",
+     "gender": "女"
+    },
+    {
+     "id": "de-AT-JonasNeural",
+     "nick": "Jonas",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "de-CH",
+   "label": "德语 ｜ de-CH",
+   "prompt_name": "德语",
+   "voices": [
+    {
+     "id": "de-CH-LeniNeural",
+     "nick": "Leni",
+     "gender": "女"
+    },
+    {
+     "id": "de-CH-JanNeural",
+     "nick": "Jan",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "el-GR",
+   "label": "希腊语 ｜ el-GR",
+   "prompt_name": "希腊语",
+   "voices": [
+    {
+     "id": "el-GR-AthinaNeural",
+     "nick": "Athina",
+     "gender": "女"
+    },
+    {
+     "id": "el-GR-NestorasNeural",
+     "nick": "Nestoras",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-AU",
+   "label": "英语 ｜ en-AU",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-AU-NatashaNeural",
+     "nick": "Natasha",
+     "gender": "女"
+    },
+    {
+     "id": "en-AU-WilliamMultilingualNeural",
+     "nick": "WilliamMultilingual",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-CA",
+   "label": "英语 ｜ en-CA",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-CA-ClaraNeural",
+     "nick": "Clara",
+     "gender": "女"
+    },
+    {
+     "id": "en-CA-LiamNeural",
+     "nick": "Liam",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-HK",
+   "label": "英语 ｜ en-HK",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-HK-YanNeural",
+     "nick": "Yan",
+     "gender": "女"
+    },
+    {
+     "id": "en-HK-SamNeural",
+     "nick": "Sam",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-IE",
+   "label": "英语 ｜ en-IE",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-IE-EmilyNeural",
+     "nick": "Emily",
+     "gender": "女"
+    },
+    {
+     "id": "en-IE-ConnorNeural",
+     "nick": "Connor",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-IN",
+   "label": "英语 ｜ en-IN",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-IN-NeerjaExpressiveNeural",
+     "nick": "NeerjaExpressive",
+     "gender": "女"
+    },
+    {
+     "id": "en-IN-NeerjaNeural",
+     "nick": "Neerja",
+     "gender": "女"
+    },
+    {
+     "id": "en-IN-PrabhatNeural",
+     "nick": "Prabhat",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-KE",
+   "label": "英语 ｜ en-KE",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-KE-AsiliaNeural",
+     "nick": "Asilia",
+     "gender": "女"
+    },
+    {
+     "id": "en-KE-ChilembaNeural",
+     "nick": "Chilemba",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-NG",
+   "label": "英语 ｜ en-NG",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-NG-EzinneNeural",
+     "nick": "Ezinne",
+     "gender": "女"
+    },
+    {
+     "id": "en-NG-AbeoNeural",
+     "nick": "Abeo",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-NZ",
+   "label": "英语 ｜ en-NZ",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-NZ-MollyNeural",
+     "nick": "Molly",
+     "gender": "女"
+    },
+    {
+     "id": "en-NZ-MitchellNeural",
+     "nick": "Mitchell",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-PH",
+   "label": "英语 ｜ en-PH",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-PH-RosaNeural",
+     "nick": "Rosa",
+     "gender": "女"
+    },
+    {
+     "id": "en-PH-JamesNeural",
+     "nick": "James",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-SG",
+   "label": "英语 ｜ en-SG",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-SG-LunaNeural",
+     "nick": "Luna",
+     "gender": "女"
+    },
+    {
+     "id": "en-SG-WayneNeural",
+     "nick": "Wayne",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-TZ",
+   "label": "英语 ｜ en-TZ",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-TZ-ImaniNeural",
+     "nick": "Imani",
+     "gender": "女"
+    },
+    {
+     "id": "en-TZ-ElimuNeural",
+     "nick": "Elimu",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "en-ZA",
+   "label": "英语 ｜ en-ZA",
+   "prompt_name": "英语",
+   "voices": [
+    {
+     "id": "en-ZA-LeahNeural",
+     "nick": "Leah",
+     "gender": "女"
+    },
+    {
+     "id": "en-ZA-LukeNeural",
+     "nick": "Luke",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-AR",
+   "label": "西班牙语 ｜ es-AR",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-AR-ElenaNeural",
+     "nick": "Elena",
+     "gender": "女"
+    },
+    {
+     "id": "es-AR-TomasNeural",
+     "nick": "Tomas",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-BO",
+   "label": "西班牙语 ｜ es-BO",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-BO-SofiaNeural",
+     "nick": "Sofia",
+     "gender": "女"
+    },
+    {
+     "id": "es-BO-MarceloNeural",
+     "nick": "Marcelo",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-CL",
+   "label": "西班牙语 ｜ es-CL",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-CL-CatalinaNeural",
+     "nick": "Catalina",
+     "gender": "女"
+    },
+    {
+     "id": "es-CL-LorenzoNeural",
+     "nick": "Lorenzo",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-CO",
+   "label": "西班牙语 ｜ es-CO",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-CO-SalomeNeural",
+     "nick": "Salome",
+     "gender": "女"
+    },
+    {
+     "id": "es-CO-GonzaloNeural",
+     "nick": "Gonzalo",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-CR",
+   "label": "西班牙语 ｜ es-CR",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-CR-MariaNeural",
+     "nick": "Maria",
+     "gender": "女"
+    },
+    {
+     "id": "es-CR-JuanNeural",
+     "nick": "Juan",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-CU",
+   "label": "西班牙语 ｜ es-CU",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-CU-BelkysNeural",
+     "nick": "Belkys",
+     "gender": "女"
+    },
+    {
+     "id": "es-CU-ManuelNeural",
+     "nick": "Manuel",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-DO",
+   "label": "西班牙语 ｜ es-DO",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-DO-RamonaNeural",
+     "nick": "Ramona",
+     "gender": "女"
+    },
+    {
+     "id": "es-DO-EmilioNeural",
+     "nick": "Emilio",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-EC",
+   "label": "西班牙语 ｜ es-EC",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-EC-AndreaNeural",
+     "nick": "Andrea",
+     "gender": "女"
+    },
+    {
+     "id": "es-EC-LuisNeural",
+     "nick": "Luis",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-GQ",
+   "label": "西班牙语 ｜ es-GQ",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-GQ-TeresaNeural",
+     "nick": "Teresa",
+     "gender": "女"
+    },
+    {
+     "id": "es-GQ-JavierNeural",
+     "nick": "Javier",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-GT",
+   "label": "西班牙语 ｜ es-GT",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-GT-MartaNeural",
+     "nick": "Marta",
+     "gender": "女"
+    },
+    {
+     "id": "es-GT-AndresNeural",
+     "nick": "Andres",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-HN",
+   "label": "西班牙语 ｜ es-HN",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-HN-KarlaNeural",
+     "nick": "Karla",
+     "gender": "女"
+    },
+    {
+     "id": "es-HN-CarlosNeural",
+     "nick": "Carlos",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-MX",
+   "label": "西班牙语 ｜ es-MX",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-MX-DaliaNeural",
+     "nick": "Dalia",
+     "gender": "女"
+    },
+    {
+     "id": "es-MX-JorgeNeural",
+     "nick": "Jorge",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-NI",
+   "label": "西班牙语 ｜ es-NI",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-NI-YolandaNeural",
+     "nick": "Yolanda",
+     "gender": "女"
+    },
+    {
+     "id": "es-NI-FedericoNeural",
+     "nick": "Federico",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-PA",
+   "label": "西班牙语 ｜ es-PA",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-PA-MargaritaNeural",
+     "nick": "Margarita",
+     "gender": "女"
+    },
+    {
+     "id": "es-PA-RobertoNeural",
+     "nick": "Roberto",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-PE",
+   "label": "西班牙语 ｜ es-PE",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-PE-CamilaNeural",
+     "nick": "Camila",
+     "gender": "女"
+    },
+    {
+     "id": "es-PE-AlexNeural",
+     "nick": "Alex",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-PR",
+   "label": "西班牙语 ｜ es-PR",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-PR-KarinaNeural",
+     "nick": "Karina",
+     "gender": "女"
+    },
+    {
+     "id": "es-PR-VictorNeural",
+     "nick": "Victor",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-PY",
+   "label": "西班牙语 ｜ es-PY",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-PY-TaniaNeural",
+     "nick": "Tania",
+     "gender": "女"
+    },
+    {
+     "id": "es-PY-MarioNeural",
+     "nick": "Mario",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-SV",
+   "label": "西班牙语 ｜ es-SV",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-SV-LorenaNeural",
+     "nick": "Lorena",
+     "gender": "女"
+    },
+    {
+     "id": "es-SV-RodrigoNeural",
+     "nick": "Rodrigo",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-US",
+   "label": "西班牙语 ｜ es-US",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-US-PalomaNeural",
+     "nick": "Paloma",
+     "gender": "女"
+    },
+    {
+     "id": "es-US-AlonsoNeural",
+     "nick": "Alonso",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-UY",
+   "label": "西班牙语 ｜ es-UY",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-UY-ValentinaNeural",
+     "nick": "Valentina",
+     "gender": "女"
+    },
+    {
+     "id": "es-UY-MateoNeural",
+     "nick": "Mateo",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "es-VE",
+   "label": "西班牙语 ｜ es-VE",
+   "prompt_name": "西班牙语",
+   "voices": [
+    {
+     "id": "es-VE-PaolaNeural",
+     "nick": "Paola",
+     "gender": "女"
+    },
+    {
+     "id": "es-VE-SebastianNeural",
+     "nick": "Sebastian",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "et-EE",
+   "label": "爱沙尼亚语 ｜ et-EE",
+   "prompt_name": "爱沙尼亚语",
+   "voices": [
+    {
+     "id": "et-EE-AnuNeural",
+     "nick": "Anu",
+     "gender": "女"
+    },
+    {
+     "id": "et-EE-KertNeural",
+     "nick": "Kert",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "fa-IR",
+   "label": "波斯语 ｜ fa-IR",
+   "prompt_name": "波斯语",
+   "voices": [
+    {
+     "id": "fa-IR-DilaraNeural",
+     "nick": "Dilara",
+     "gender": "女"
+    },
+    {
+     "id": "fa-IR-FaridNeural",
+     "nick": "Farid",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "fi-FI",
+   "label": "芬兰语 ｜ fi-FI",
+   "prompt_name": "芬兰语",
+   "voices": [
+    {
+     "id": "fi-FI-NooraNeural",
+     "nick": "Noora",
+     "gender": "女"
+    },
+    {
+     "id": "fi-FI-HarriNeural",
+     "nick": "Harri",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "fil-PH",
+   "label": "菲律宾语 ｜ fil-PH",
+   "prompt_name": "菲律宾语",
+   "voices": [
+    {
+     "id": "fil-PH-BlessicaNeural",
+     "nick": "Blessica",
+     "gender": "女"
+    },
+    {
+     "id": "fil-PH-AngeloNeural",
+     "nick": "Angelo",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "fr-BE",
+   "label": "法语 ｜ fr-BE",
+   "prompt_name": "法语",
+   "voices": [
+    {
+     "id": "fr-BE-CharlineNeural",
+     "nick": "Charline",
+     "gender": "女"
+    },
+    {
+     "id": "fr-BE-GerardNeural",
+     "nick": "Gerard",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "fr-CA",
+   "label": "法语 ｜ fr-CA",
+   "prompt_name": "法语",
+   "voices": [
+    {
+     "id": "fr-CA-SylvieNeural",
+     "nick": "Sylvie",
+     "gender": "女"
+    },
+    {
+     "id": "fr-CA-AntoineNeural",
+     "nick": "Antoine",
+     "gender": "男"
+    },
+    {
+     "id": "fr-CA-JeanNeural",
+     "nick": "Jean",
+     "gender": "男"
+    },
+    {
+     "id": "fr-CA-ThierryNeural",
+     "nick": "Thierry",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "fr-CH",
+   "label": "法语 ｜ fr-CH",
+   "prompt_name": "法语",
+   "voices": [
+    {
+     "id": "fr-CH-ArianeNeural",
+     "nick": "Ariane",
+     "gender": "女"
+    },
+    {
+     "id": "fr-CH-FabriceNeural",
+     "nick": "Fabrice",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ga-IE",
+   "label": "爱尔兰语 ｜ ga-IE",
+   "prompt_name": "爱尔兰语",
+   "voices": [
+    {
+     "id": "ga-IE-OrlaNeural",
+     "nick": "Orla",
+     "gender": "女"
+    },
+    {
+     "id": "ga-IE-ColmNeural",
+     "nick": "Colm",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "gl-ES",
+   "label": "加利西亚语 ｜ gl-ES",
+   "prompt_name": "加利西亚语",
+   "voices": [
+    {
+     "id": "gl-ES-SabelaNeural",
+     "nick": "Sabela",
+     "gender": "女"
+    },
+    {
+     "id": "gl-ES-RoiNeural",
+     "nick": "Roi",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "gu-IN",
+   "label": "古吉拉特语 ｜ gu-IN",
+   "prompt_name": "古吉拉特语",
+   "voices": [
+    {
+     "id": "gu-IN-DhwaniNeural",
+     "nick": "Dhwani",
+     "gender": "女"
+    },
+    {
+     "id": "gu-IN-NiranjanNeural",
+     "nick": "Niranjan",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "he-IL",
+   "label": "希伯来语 ｜ he-IL",
+   "prompt_name": "希伯来语",
+   "voices": [
+    {
+     "id": "he-IL-HilaNeural",
+     "nick": "Hila",
+     "gender": "女"
+    },
+    {
+     "id": "he-IL-AvriNeural",
+     "nick": "Avri",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "hr-HR",
+   "label": "克罗地亚语 ｜ hr-HR",
+   "prompt_name": "克罗地亚语",
+   "voices": [
+    {
+     "id": "hr-HR-GabrijelaNeural",
+     "nick": "Gabrijela",
+     "gender": "女"
+    },
+    {
+     "id": "hr-HR-SreckoNeural",
+     "nick": "Srecko",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "hu-HU",
+   "label": "匈牙利语 ｜ hu-HU",
+   "prompt_name": "匈牙利语",
+   "voices": [
+    {
+     "id": "hu-HU-NoemiNeural",
+     "nick": "Noemi",
+     "gender": "女"
+    },
+    {
+     "id": "hu-HU-TamasNeural",
+     "nick": "Tamas",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "is-IS",
+   "label": "冰岛语 ｜ is-IS",
+   "prompt_name": "冰岛语",
+   "voices": [
+    {
+     "id": "is-IS-GudrunNeural",
+     "nick": "Gudrun",
+     "gender": "女"
+    },
+    {
+     "id": "is-IS-GunnarNeural",
+     "nick": "Gunnar",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "iu-Cans-CA",
+   "label": "因纽特语 ｜ iu-Cans-CA",
+   "prompt_name": "因纽特语",
+   "voices": [
+    {
+     "id": "iu-Cans-CA-SiqiniqNeural",
+     "nick": "Siqiniq",
+     "gender": "女"
+    },
+    {
+     "id": "iu-Cans-CA-TaqqiqNeural",
+     "nick": "Taqqiq",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "iu-Latn-CA",
+   "label": "因纽特语 ｜ iu-Latn-CA",
+   "prompt_name": "因纽特语",
+   "voices": [
+    {
+     "id": "iu-Latn-CA-SiqiniqNeural",
+     "nick": "Siqiniq",
+     "gender": "女"
+    },
+    {
+     "id": "iu-Latn-CA-TaqqiqNeural",
+     "nick": "Taqqiq",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "jv-ID",
+   "label": "Javanese (Indonesia) ｜ jv-ID",
+   "prompt_name": "Javanese (Indonesia)",
+   "voices": [
+    {
+     "id": "jv-ID-SitiNeural",
+     "nick": "Siti",
+     "gender": "女"
+    },
+    {
+     "id": "jv-ID-DimasNeural",
+     "nick": "Dimas",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ka-GE",
+   "label": "格鲁吉亚语 ｜ ka-GE",
+   "prompt_name": "格鲁吉亚语",
+   "voices": [
+    {
+     "id": "ka-GE-EkaNeural",
+     "nick": "Eka",
+     "gender": "女"
+    },
+    {
+     "id": "ka-GE-GiorgiNeural",
+     "nick": "Giorgi",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "kk-KZ",
+   "label": "哈萨克语 ｜ kk-KZ",
+   "prompt_name": "哈萨克语",
+   "voices": [
+    {
+     "id": "kk-KZ-AigulNeural",
+     "nick": "Aigul",
+     "gender": "女"
+    },
+    {
+     "id": "kk-KZ-DauletNeural",
+     "nick": "Daulet",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "km-KH",
+   "label": "高棉语 ｜ km-KH",
+   "prompt_name": "高棉语",
+   "voices": [
+    {
+     "id": "km-KH-SreymomNeural",
+     "nick": "Sreymom",
+     "gender": "女"
+    },
+    {
+     "id": "km-KH-PisethNeural",
+     "nick": "Piseth",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "kn-IN",
+   "label": "卡纳达语 ｜ kn-IN",
+   "prompt_name": "卡纳达语",
+   "voices": [
+    {
+     "id": "kn-IN-SapnaNeural",
+     "nick": "Sapna",
+     "gender": "女"
+    },
+    {
+     "id": "kn-IN-GaganNeural",
+     "nick": "Gagan",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "lo-LA",
+   "label": "老挝语 ｜ lo-LA",
+   "prompt_name": "老挝语",
+   "voices": [
+    {
+     "id": "lo-LA-KeomanyNeural",
+     "nick": "Keomany",
+     "gender": "女"
+    },
+    {
+     "id": "lo-LA-ChanthavongNeural",
+     "nick": "Chanthavong",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "lt-LT",
+   "label": "立陶宛语 ｜ lt-LT",
+   "prompt_name": "立陶宛语",
+   "voices": [
+    {
+     "id": "lt-LT-OnaNeural",
+     "nick": "Ona",
+     "gender": "女"
+    },
+    {
+     "id": "lt-LT-LeonasNeural",
+     "nick": "Leonas",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "lv-LV",
+   "label": "拉脱维亚语 ｜ lv-LV",
+   "prompt_name": "拉脱维亚语",
+   "voices": [
+    {
+     "id": "lv-LV-EveritaNeural",
+     "nick": "Everita",
+     "gender": "女"
+    },
+    {
+     "id": "lv-LV-NilsNeural",
+     "nick": "Nils",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "mk-MK",
+   "label": "马其顿语 ｜ mk-MK",
+   "prompt_name": "马其顿语",
+   "voices": [
+    {
+     "id": "mk-MK-MarijaNeural",
+     "nick": "Marija",
+     "gender": "女"
+    },
+    {
+     "id": "mk-MK-AleksandarNeural",
+     "nick": "Aleksandar",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ml-IN",
+   "label": "马拉雅拉姆语 ｜ ml-IN",
+   "prompt_name": "马拉雅拉姆语",
+   "voices": [
+    {
+     "id": "ml-IN-SobhanaNeural",
+     "nick": "Sobhana",
+     "gender": "女"
+    },
+    {
+     "id": "ml-IN-MidhunNeural",
+     "nick": "Midhun",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "mn-MN",
+   "label": "蒙古语 ｜ mn-MN",
+   "prompt_name": "蒙古语",
+   "voices": [
+    {
+     "id": "mn-MN-YesuiNeural",
+     "nick": "Yesui",
+     "gender": "女"
+    },
+    {
+     "id": "mn-MN-BataaNeural",
+     "nick": "Bataa",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "mr-IN",
+   "label": "马拉地语 ｜ mr-IN",
+   "prompt_name": "马拉地语",
+   "voices": [
+    {
+     "id": "mr-IN-AarohiNeural",
+     "nick": "Aarohi",
+     "gender": "女"
+    },
+    {
+     "id": "mr-IN-ManoharNeural",
+     "nick": "Manohar",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "mt-MT",
+   "label": "马耳他语 ｜ mt-MT",
+   "prompt_name": "马耳他语",
+   "voices": [
+    {
+     "id": "mt-MT-GraceNeural",
+     "nick": "Grace",
+     "gender": "女"
+    },
+    {
+     "id": "mt-MT-JosephNeural",
+     "nick": "Joseph",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "my-MM",
+   "label": "缅甸语 ｜ my-MM",
+   "prompt_name": "缅甸语",
+   "voices": [
+    {
+     "id": "my-MM-NilarNeural",
+     "nick": "Nilar",
+     "gender": "女"
+    },
+    {
+     "id": "my-MM-ThihaNeural",
+     "nick": "Thiha",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "nb-NO",
+   "label": "挪威语 ｜ nb-NO",
+   "prompt_name": "挪威语",
+   "voices": [
+    {
+     "id": "nb-NO-PernilleNeural",
+     "nick": "Pernille",
+     "gender": "女"
+    },
+    {
+     "id": "nb-NO-FinnNeural",
+     "nick": "Finn",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ne-NP",
+   "label": "尼泊尔语 ｜ ne-NP",
+   "prompt_name": "尼泊尔语",
+   "voices": [
+    {
+     "id": "ne-NP-HemkalaNeural",
+     "nick": "Hemkala",
+     "gender": "女"
+    },
+    {
+     "id": "ne-NP-SagarNeural",
+     "nick": "Sagar",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "nl-BE",
+   "label": "Dutch (Belgium) ｜ nl-BE",
+   "prompt_name": "Dutch (Belgium)",
+   "voices": [
+    {
+     "id": "nl-BE-DenaNeural",
+     "nick": "Dena",
+     "gender": "女"
+    },
+    {
+     "id": "nl-BE-ArnaudNeural",
+     "nick": "Arnaud",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "nl-NL",
+   "label": "荷兰语 ｜ nl-NL",
+   "prompt_name": "荷兰语",
+   "voices": [
+    {
+     "id": "nl-NL-ColetteNeural",
+     "nick": "Colette",
+     "gender": "女"
+    },
+    {
+     "id": "nl-NL-FennaNeural",
+     "nick": "Fenna",
+     "gender": "女"
+    },
+    {
+     "id": "nl-NL-MaartenNeural",
+     "nick": "Maarten",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "pl-PL",
+   "label": "波兰语 ｜ pl-PL",
+   "prompt_name": "波兰语",
+   "voices": [
+    {
+     "id": "pl-PL-ZofiaNeural",
+     "nick": "Zofia",
+     "gender": "女"
+    },
+    {
+     "id": "pl-PL-MarekNeural",
+     "nick": "Marek",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ps-AF",
+   "label": "普什图语 ｜ ps-AF",
+   "prompt_name": "普什图语",
+   "voices": [
+    {
+     "id": "ps-AF-LatifaNeural",
+     "nick": "Latifa",
+     "gender": "女"
+    },
+    {
+     "id": "ps-AF-GulNawazNeural",
+     "nick": "GulNawaz",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "pt-PT",
+   "label": "葡萄牙语 ｜ pt-PT",
+   "prompt_name": "葡萄牙语",
+   "voices": [
+    {
+     "id": "pt-PT-RaquelNeural",
+     "nick": "Raquel",
+     "gender": "女"
+    },
+    {
+     "id": "pt-PT-DuarteNeural",
+     "nick": "Duarte",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ro-RO",
+   "label": "罗马尼亚语 ｜ ro-RO",
+   "prompt_name": "罗马尼亚语",
+   "voices": [
+    {
+     "id": "ro-RO-AlinaNeural",
+     "nick": "Alina",
+     "gender": "女"
+    },
+    {
+     "id": "ro-RO-EmilNeural",
+     "nick": "Emil",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "si-LK",
+   "label": "僧伽罗语 ｜ si-LK",
+   "prompt_name": "僧伽罗语",
+   "voices": [
+    {
+     "id": "si-LK-ThiliniNeural",
+     "nick": "Thilini",
+     "gender": "女"
+    },
+    {
+     "id": "si-LK-SameeraNeural",
+     "nick": "Sameera",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "sk-SK",
+   "label": "斯洛伐克语 ｜ sk-SK",
+   "prompt_name": "斯洛伐克语",
+   "voices": [
+    {
+     "id": "sk-SK-ViktoriaNeural",
+     "nick": "Viktoria",
+     "gender": "女"
+    },
+    {
+     "id": "sk-SK-LukasNeural",
+     "nick": "Lukas",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "sl-SI",
+   "label": "斯洛文尼亚语 ｜ sl-SI",
+   "prompt_name": "斯洛文尼亚语",
+   "voices": [
+    {
+     "id": "sl-SI-PetraNeural",
+     "nick": "Petra",
+     "gender": "女"
+    },
+    {
+     "id": "sl-SI-RokNeural",
+     "nick": "Rok",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "so-SO",
+   "label": "索马里语 ｜ so-SO",
+   "prompt_name": "索马里语",
+   "voices": [
+    {
+     "id": "so-SO-UbaxNeural",
+     "nick": "Ubax",
+     "gender": "女"
+    },
+    {
+     "id": "so-SO-MuuseNeural",
+     "nick": "Muuse",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "sq-AL",
+   "label": "阿尔巴尼亚语 ｜ sq-AL",
+   "prompt_name": "阿尔巴尼亚语",
+   "voices": [
+    {
+     "id": "sq-AL-AnilaNeural",
+     "nick": "Anila",
+     "gender": "女"
+    },
+    {
+     "id": "sq-AL-IlirNeural",
+     "nick": "Ilir",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "sr-RS",
+   "label": "塞尔维亚语 ｜ sr-RS",
+   "prompt_name": "塞尔维亚语",
+   "voices": [
+    {
+     "id": "sr-RS-SophieNeural",
+     "nick": "Sophie",
+     "gender": "女"
+    },
+    {
+     "id": "sr-RS-NicholasNeural",
+     "nick": "Nicholas",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "su-ID",
+   "label": "巽他语 ｜ su-ID",
+   "prompt_name": "巽他语",
+   "voices": [
+    {
+     "id": "su-ID-TutiNeural",
+     "nick": "Tuti",
+     "gender": "女"
+    },
+    {
+     "id": "su-ID-JajangNeural",
+     "nick": "Jajang",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "sv-SE",
+   "label": "瑞典语 ｜ sv-SE",
+   "prompt_name": "瑞典语",
+   "voices": [
+    {
+     "id": "sv-SE-SofieNeural",
+     "nick": "Sofie",
+     "gender": "女"
+    },
+    {
+     "id": "sv-SE-MattiasNeural",
+     "nick": "Mattias",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "sw-KE",
+   "label": "斯瓦希里语 ｜ sw-KE",
+   "prompt_name": "斯瓦希里语",
+   "voices": [
+    {
+     "id": "sw-KE-ZuriNeural",
+     "nick": "Zuri",
+     "gender": "女"
+    },
+    {
+     "id": "sw-KE-RafikiNeural",
+     "nick": "Rafiki",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "sw-TZ",
+   "label": "Swahili (Tanzania) ｜ sw-TZ",
+   "prompt_name": "Swahili (Tanzania)",
+   "voices": [
+    {
+     "id": "sw-TZ-RehemaNeural",
+     "nick": "Rehema",
+     "gender": "女"
+    },
+    {
+     "id": "sw-TZ-DaudiNeural",
+     "nick": "Daudi",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ta-IN",
+   "label": "泰米尔语 ｜ ta-IN",
+   "prompt_name": "泰米尔语",
+   "voices": [
+    {
+     "id": "ta-IN-PallaviNeural",
+     "nick": "Pallavi",
+     "gender": "女"
+    },
+    {
+     "id": "ta-IN-ValluvarNeural",
+     "nick": "Valluvar",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ta-LK",
+   "label": "泰米尔语 ｜ ta-LK",
+   "prompt_name": "泰米尔语",
+   "voices": [
+    {
+     "id": "ta-LK-SaranyaNeural",
+     "nick": "Saranya",
+     "gender": "女"
+    },
+    {
+     "id": "ta-LK-KumarNeural",
+     "nick": "Kumar",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ta-MY",
+   "label": "泰米尔语 ｜ ta-MY",
+   "prompt_name": "泰米尔语",
+   "voices": [
+    {
+     "id": "ta-MY-KaniNeural",
+     "nick": "Kani",
+     "gender": "女"
+    },
+    {
+     "id": "ta-MY-SuryaNeural",
+     "nick": "Surya",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ta-SG",
+   "label": "泰米尔语 ｜ ta-SG",
+   "prompt_name": "泰米尔语",
+   "voices": [
+    {
+     "id": "ta-SG-VenbaNeural",
+     "nick": "Venba",
+     "gender": "女"
+    },
+    {
+     "id": "ta-SG-AnbuNeural",
+     "nick": "Anbu",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "te-IN",
+   "label": "泰卢固语 ｜ te-IN",
+   "prompt_name": "泰卢固语",
+   "voices": [
+    {
+     "id": "te-IN-ShrutiNeural",
+     "nick": "Shruti",
+     "gender": "女"
+    },
+    {
+     "id": "te-IN-MohanNeural",
+     "nick": "Mohan",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "uk-UA",
+   "label": "乌克兰语 ｜ uk-UA",
+   "prompt_name": "乌克兰语",
+   "voices": [
+    {
+     "id": "uk-UA-PolinaNeural",
+     "nick": "Polina",
+     "gender": "女"
+    },
+    {
+     "id": "uk-UA-OstapNeural",
+     "nick": "Ostap",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ur-IN",
+   "label": "乌尔都语 ｜ ur-IN",
+   "prompt_name": "乌尔都语",
+   "voices": [
+    {
+     "id": "ur-IN-GulNeural",
+     "nick": "Gul",
+     "gender": "女"
+    },
+    {
+     "id": "ur-IN-SalmanNeural",
+     "nick": "Salman",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "ur-PK",
+   "label": "乌尔都语 ｜ ur-PK",
+   "prompt_name": "乌尔都语",
+   "voices": [
+    {
+     "id": "ur-PK-UzmaNeural",
+     "nick": "Uzma",
+     "gender": "女"
+    },
+    {
+     "id": "ur-PK-AsadNeural",
+     "nick": "Asad",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "uz-UZ",
+   "label": "乌兹别克语 ｜ uz-UZ",
+   "prompt_name": "乌兹别克语",
+   "voices": [
+    {
+     "id": "uz-UZ-MadinaNeural",
+     "nick": "Madina",
+     "gender": "女"
+    },
+    {
+     "id": "uz-UZ-SardorNeural",
+     "nick": "Sardor",
+     "gender": "男"
+    }
+   ]
+  },
+  {
+   "code": "zh-CN-liaoning",
+   "label": "中文（辽宁话） ｜ zh-CN-liaoning",
+   "prompt_name": "中文（辽宁话）",
+   "voices": [
+    {
+     "id": "zh-CN-liaoning-XiaobeiNeural",
+     "nick": "Xiaobei",
+     "gender": "女"
+    }
+   ]
+  },
+  {
+   "code": "zh-CN-shaanxi",
+   "label": "中文（陕西话） ｜ zh-CN-shaanxi",
+   "prompt_name": "中文（陕西话）",
+   "voices": [
+    {
+     "id": "zh-CN-shaanxi-XiaoniNeural",
+     "nick": "Xiaoni",
+     "gender": "女"
+    }
+   ]
+  },
+  {
+   "code": "zu-ZA",
+   "label": "祖鲁语 ｜ zu-ZA",
+   "prompt_name": "祖鲁语",
+   "voices": [
+    {
+     "id": "zu-ZA-ThandoNeural",
+     "nick": "Thando",
+     "gender": "女"
+    },
+    {
+     "id": "zu-ZA-ThembaNeural",
+     "nick": "Themba",
+     "gender": "男"
+    }
+   ]
+  }
+ ]
+}

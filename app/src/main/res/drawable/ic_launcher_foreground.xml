@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 应用图标前景：白色照片卡片 + 三道声波（蓝底由 ic_launcher_background 提供） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 照片卡片 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M28,34 h22 a4,4 0 0 1 4,4 v28 a4,4 0 0 1 -4,4 h-22 a4,4 0 0 1 -4,-4 v-28 a4,4 0 0 1 4,-4 z" />
+
+    <!-- 卡片内的山形 -->
+    <path
+        android:fillColor="#1E6FE8"
+        android:pathData="M28,62 l7,-9 l5,6 l5,-5 l9,8 z" />
+
+    <!-- 声波（由内向外三道弧线） -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M62.36,45.64 A9,9 0 0 1 62.36,58.36"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="4.5" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M67.31,40.69 A16,16 0 0 1 67.31,63.31"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="4.5" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M72.26,35.74 A23,23 0 0 1 72.26,68.26"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="4.5" />
+</vector>

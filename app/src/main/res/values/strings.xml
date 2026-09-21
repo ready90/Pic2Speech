@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">图片转语音</string>
+    <string name="intro">上传 1~8 张图片 → 智谱 GLM-4V 理解画面与文字 → edge-tts 合成 MP3（多语言可选）</string>
+
+    <string name="pick">① 选择图片</string>
+    <string name="not_picked">未选择</string>
+    <string name="label_lang">② 目标语言</string>
+    <string name="label_voice">音色</string>
+    <string name="label_mode">模式</string>
+    <string name="label_detail">篇幅</string>
+    <string name="label_rate">语速</string>
+    <string name="save_key">保存</string>
+    <string name="key_hint">粘贴智谱 API Key（免费申请 open.bigmodel.cn）</string>
+    <string name="generate">③ 生成音频（识别 + 合成）</string>
+    <string name="label_text">识别结果（可编辑，改完点“仅重新合成”）</string>
+    <string name="text_hint">识别完成后这里会显示文字稿</string>
+    <string name="resynth">仅重新合成</string>
+    <string name="play">▶ 播放</string>
+    <string name="share">分享</string>
+    <string name="stop">■ 停止</string>
+</resources>

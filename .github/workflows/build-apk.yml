@@ -1,0 +1,58 @@
+name: Build APK
+
+# 触发条件：推代码 / 手动点按钮
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      # Chaquopy 要求「构建机的 Python 版本」与「App 里的 Python 版本」一致，
+      # app/build.gradle.kts 里写的是 3.13，这里必须对上。
+      # 用 3.13 而不是 3.10：Chaquopy 仓库里 cp313 的原生轮子才齐全
+      # （cp310 的 yarl 最高只有 1.4.2，不满足 aiohttp 3.10.10 要求的 >=1.12）。
+      - name: 安装 Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: 安装 JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: 安装 Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: 安装 SDK 组件
+        run: |
+          sdkmanager --install "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+
+      - name: 准备 Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      # 这一步会联网从 chaquo.com 下载 Python 运行时与安卓版依赖 wheel
+      # （aiohttp / multidict / frozenlist / yarl），首次约 5~10 分钟。
+      - name: 编译 Debug APK
+        run: gradle assembleDebug --no-daemon --stacktrace
+
+      - name: 上传 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: pic2speech-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
