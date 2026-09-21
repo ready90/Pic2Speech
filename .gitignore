@@ -4,6 +4,10 @@ app/build/
 .gradle/
 local.properties
 
+# 从 GitHub Actions 下载的 APK（二进制，不入库；需要时用 tools/fetch_apk.py 重新拉取）
+dist/
+*.apk
+
 # IDE
 .idea/
 *.iml
