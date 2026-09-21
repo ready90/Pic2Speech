@@ -326,16 +326,24 @@ def _post(api_key, content):
 # --------------------------------------------------------------------------- #
 # 纯文本翻译（不在视觉模型上翻译，全交给它）
 # --------------------------------------------------------------------------- #
-def translate_text(text, lang_name, api_key, forbid_cjk=False):
+def translate_text(text, lang_name, api_key, forbid_cjk=False, strict=False):
     """把 text 翻译成 lang_name，只返回译文。
 
     用文本模型（glm-4-flash）而不是视觉模型 —— 实测纯文本翻译的输出干净得多，
     不会夹带原文，也不会掺进对画面的描述。
     forbid_cjk=True 时，若结果里仍夹带汉字句子，会就地剥掉（保留纯译文部分）。
+    strict=True 用于"第一次没翻出来"后的重试：实测冷门语言（如古吉拉特语）
+    glm-4-flash 会**偶发**偷懒直接返回中文，加强指令后成功率明显提高。
     """
     forbid = "输出中不得出现任何汉字，也不得出现原文。\n" if forbid_cjk else ""
+    strict_line = ""
+    if strict:
+        strict_line = ("重要：输入内容是中文，请把**每一句**都翻译成" + lang_name +
+                       "，绝对不要原样返回中文；"
+                       "即使输入缺少标点，也请先自行断句再翻译。\n")
     prompt = (
         "把下面的内容翻译成地道、口语化、适合朗读的" + lang_name + "。\n"
+        + strict_line +
         "只输出" + lang_name + "译文本身：不要原文、不要对照、不要解释、"
         "不要 Markdown 符号。\n" + forbid +
         "--- 待翻译内容 ---\n" + (text or "")

@@ -315,16 +315,17 @@ def generate(image_paths, lang_code, voice, rate, mode, detail, api_key, out_dir
 def _try_translate(text, lang_name, key, lc):
     """把 text 翻译成目标语言，合格才返回，否则返回 ""。
 
-    最多试 2 次 —— 实测 glm-4-flash 偶尔会把中英原文和译文一起吐出来，
-    此时 strip_cjk_fragments（已内置在 translate_text 里）会把译文捞回来；
-    真捞不回来就再试一次。
+    最多试 3 次 —— 实测 glm-4-flash 偶尔会把原文和译文一起吐出来
+    （strip_cjk_fragments 会把译文捞回来），对冷门语言（如古吉拉特语）
+    更会**偶发**偷懒直接返回中文（完整链路连跑 3 次只有 1 次成功）。
+    所以第 2 次起改用强指令（strict=True）重试，显著降低失败率。
     """
     # 目标语言本身用汉字（中文/日文）时不能禁用汉字 —— 否则译文会被当"夹带原文"删掉
     forbid = not str(lc or "").lower().startswith(("ja", "zh"))
-    for _ in range(2):
+    for i in range(3):
         try:
             fixed = vision.translate_text(text, lang_name, key,
-                                          forbid_cjk=forbid)
+                                          forbid_cjk=forbid, strict=(i > 0))
         except Exception:                                 # noqa: BLE001
             fixed = ""
         if fixed and not vision.needs_translate(fixed, lc):
