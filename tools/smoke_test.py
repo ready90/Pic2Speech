@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.normpath(
     os.path.join(HERE, "..", "app", "src", "main", "python")))
 
 import pic2speech.api as api              # noqa: E402
-from pic2speech import tts                # noqa: E402
+from pic2speech import tts, vision        # noqa: E402
 
 results = []
 
@@ -80,6 +80,46 @@ if r2.get("ok"):
 r3 = json.loads(api.resynth("こんにちは、これはテストです。",
                             api._default_voice("ja-JP"), 0, tmp))
 check("日语合成成功", r3.get("ok") is True, str(r3.get("error", ""))[:80])
+
+# =========================================================================== #
+# 回归：修复「选法语后翻译朗读失败」（2026-09-21）
+#
+# 根因链：① glm-4v-flash 经常不理会"翻译成 X 语言"，直接吐回中文原文；
+#         ② edge-tts 用非中文音色念中文会硬报 `No audio was received`；
+#         ①+② ⇒ 界面显示"语音合成失败"。
+# 修法：严格提示词 + 文本模型补译 + 音色与文字自动匹配 + 合成兜底重试。
+# 这里把每一环都钉住，防止以后改回去。
+# =========================================================================== #
+check("script_of 中文 → zh", vision.script_of("温馨提示禁止吸烟") == "zh")
+check("script_of 日文 → ja", vision.script_of("こんにちは") == "ja")
+check("script_of 日文(汉字+假名) → ja", vision.script_of("営業時間は9時です") == "ja")
+check("script_of 韩文 → ko", vision.script_of("안녕하세요") == "ko")
+check("script_of 英文 → latin", vision.script_of("Hello world") == "latin")
+
+check("目标日语+纯汉字 ⇒ 判定需补译", vision.needs_translate("温馨提示", "ja-JP"))
+check("目标日语+含假名 ⇒ 不补译", not vision.needs_translate("営業時間は9時です", "ja-JP"))
+check("目标韩语+纯汉字 ⇒ 需补译", vision.needs_translate("温馨提示", "ko-KR"))
+check("目标法语+汉字 ⇒ 需补译", vision.needs_translate("温馨提示", "fr-FR"))
+check("目标中文+汉字 ⇒ 不补译", not vision.needs_translate("温馨提示", "zh-CN"))
+check("目标法语+法语 ⇒ 不补译", not vision.needs_translate("Bonjour à tous", "fr-FR"))
+
+_fr = api._find_lang("fr-FR")
+_v, _n = api._pick_voice("trans", "温馨提示", "fr-FR-DeniseNeural", _fr)
+check("中文文本+法语音色 ⇒ 自动换音色", _v != "fr-FR-DeniseNeural", "%s / %s" % (_v, _n))
+_v2, _n2 = api._pick_voice("trans", "Bonjour à tous", "fr-FR-DeniseNeural", _fr)
+check("法文文本+法语音色 ⇒ 不换音色", _v2 == "fr-FR-DeniseNeural" and not _n2, _v2)
+_ja = api._find_lang("ja-JP")
+_v3, _ = api._pick_voice("read", "営業時間は9時です", "zh-CN-XiaoxiaoNeural", _ja)
+check("日文文本+中文音色 ⇒ 换回日语音色", _v3.startswith("ja-JP-"), _v3)
+
+# 原故障场景：中文文本 + 法语音色 → 应自动兜底出音频，而不是报错
+try:
+    _mp3, _srt, _used, _snote = api._synthesize_safe(
+        "温馨提示：本店禁止吸烟。", "fr-FR-DeniseNeural", 0, tmp, "smoke", _fr)
+    check("中文文本+法语音色 ⇒ 自动兜底出音频", os.path.getsize(_mp3) > 5000,
+          "%s / %s" % (_used, _snote))
+except Exception as _e:                                            # noqa: BLE001
+    check("中文文本+法语音色 ⇒ 自动兜底出音频", False, str(_e)[:90])
 
 print()
 print("RESULT:", "ALL PASS" if all(results) else "FAILED",
