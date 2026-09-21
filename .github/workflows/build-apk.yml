@@ -32,13 +32,24 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      # 注意：setup-android 的 v3 标签默认 packages 是 'tools platform-tools'，
+      # 而 'tools' 包已从 Android SDK 仓库移除，会报
+      #   Warning: Failed to find package 'tools' -> sdkmanager exit code 1
+      # 导致整步失败。必须显式覆盖为 platform-tools。
       - name: 安装 Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: "platform-tools"
 
       - name: 安装 SDK 组件
         run: |
-          sdkmanager --install "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+          set -e
+          echo "sdkmanager: $(command -v sdkmanager)"
+          sdkmanager --version
           yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          sdkmanager --install "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          ls "$ANDROID_HOME/platforms" "$ANDROID_HOME/build-tools"
 
       - name: 准备 Gradle
         uses: gradle/actions/setup-gradle@v4
