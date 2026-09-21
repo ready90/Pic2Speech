@@ -55,6 +55,13 @@ class MainActivity : Activity() {
     private var lastMp3: String? = null
     private var player: MediaPlayer? = null
 
+    /**
+     * 播放器是否处于「暂停 / 未开始」状态。
+     * 自己维护而不用 isPlaying() 现算：start() 之后 isPlaying() 的取值
+     * 在不同机型上有极短的时序差异，用现算值去决定「要不要按回暂停」可能误判。
+     */
+    private var paused = true
+
     /** 进度条刷新节拍器（主线程） */
     private val ui = Handler(Looper.getMainLooper())
 
@@ -157,7 +164,7 @@ class MainActivity : Activity() {
     }
 
     // =========================================================================
-    // 播放器：进度拖动 / 倍速 / 暂停 / 快进快退
+    // 播放器：进度拖动 / 倍速 / 暂停继续 / 快进快退
     // =========================================================================
     private fun setupPlayer() {
         sbSpeed.max = SPEED_STEPS - 1
@@ -212,19 +219,30 @@ class MainActivity : Activity() {
 
     private fun fmtSpeed(s: Float): String = String.format(Locale.US, "%.1fx", s)
 
+    /** 只把倍速写进播放器，不动播放/暂停状态 */
+    private fun setSpeedParams(speed: Float) {
+        val p = player ?: return
+        try {
+            // pitch 固定 1.0 ⇒ 变速不变调，人声不会变成唐老鸭
+            p.playbackParams = PlaybackParams().setSpeed(speed).setPitch(1.0f)
+        } catch (_: Exception) {
+            // 极少数机型不支持变速：忽略，按原速播放不受影响
+        }
+    }
+
     /**
-     * 应用倍速。pitch 固定 1.0 保持人声不变调。
+     * 供倍速滑块调用（播放中可实时试听）。
      * 注意：部分机型在「暂停状态」下调用 setPlaybackParams 会自己开始播放，
-     * 所以要记下原状态，设完再按回去。
+     * 所以设完参数后要把暂停状态按回去。
      */
     private fun applySpeed(speed: Float) {
         val p = player ?: return
-        try {
-            val wasPaused = !p.isPlaying
-            p.playbackParams = PlaybackParams().setSpeed(speed).setPitch(1.0f)
-            if (wasPaused) p.pause()
-        } catch (_: Exception) {
-            // 极少数机型不支持变速：忽略，按原速播放不受影响
+        setSpeedParams(speed)
+        if (paused) {
+            try {
+                p.pause()
+            } catch (_: Exception) {
+            }
         }
     }
 
@@ -269,7 +287,7 @@ class MainActivity : Activity() {
         return if (d > 0) d.toLong() else 0L
     }
 
-    /** 让进度条的量程跟上真实时长（时长未知时保持原样） */
+    /** 让进度条量程跟上真实时长（时长未知时保持原样） */
     private fun syncSeekMax() {
         val d = durationMs()
         if (d > 0 && sbPos.max != d.toInt()) sbPos.max = d.toInt()
@@ -553,7 +571,7 @@ class MainActivity : Activity() {
         }
     }
 
-    /** 亮出播放器面板，并把进度条量程与时长对齐 */
+    /** 亮出播放器面板，并把进度条量程与真实时长对齐 */
     private fun showPlayer(path: String) {
         playerBox.visibility = View.VISIBLE
         btnPlay.text = getString(R.string.play)
@@ -567,7 +585,7 @@ class MainActivity : Activity() {
         }
     }
 
-    /** 上次生成过的音频，重开 App 后仍可继续播放 */
+    /** 上次生成过的音频，重开 App 后仍可直接播放 */
     private fun restoreLastAudio() {
         val p = prefs.getString("last_mp3", "") ?: ""
         if (p.isEmpty() || !File(p).exists()) return
@@ -587,7 +605,12 @@ class MainActivity : Activity() {
             mp.setDataSource(path)
             mp.prepare()
             mp.setOnCompletionListener { onPlayCompleted() }
+            mp.setOnErrorListener { _, _, _ ->
+                runOnUiThread { onPlayCompleted() }
+                true
+            }
             player = mp
+            paused = true
             syncSeekMax()
             mp
         } catch (e: Exception) {
@@ -604,11 +627,13 @@ class MainActivity : Activity() {
         }
         val p = ensurePlayer() ?: return
 
-        if (isPlaying()) {
+        if (!paused) {
+            // → 暂停
             try {
                 p.pause()
             } catch (_: Exception) {
             }
+            paused = true
             stopTicker()
             btnPlay.text = getString(R.string.play)
             val pos = currentPosition()
@@ -617,15 +642,16 @@ class MainActivity : Activity() {
             return
         }
 
-        // 播完后再点“播放”：从头开始
+        // → 播放（含「播完后再点」：从头开始）
         val dur = durationMs()
-        val pos = currentPosition()
-        if (dur > 0 && pos >= dur - 300) {
+        if (dur > 0 && currentPosition() >= dur - 300) {
             try {
                 p.seekTo(0)
             } catch (_: Exception) {
             }
+            sbPos.progress = 0
         }
+        setSpeedParams(currentSpeed()) // 先设倍速再 start，避免被误当作“暂停”
         try {
             p.start()
         } catch (e: Exception) {
@@ -633,12 +659,13 @@ class MainActivity : Activity() {
             releasePlayer()
             return
         }
-        applySpeed(currentSpeed())
+        paused = false
         btnPlay.text = getString(R.string.pause)
         startTicker()
     }
 
     private fun onPlayCompleted() {
+        paused = true
         stopTicker()
         btnPlay.text = getString(R.string.play)
         sbPos.progress = 0
@@ -672,11 +699,12 @@ class MainActivity : Activity() {
             status("还没有可播放的音频", true)
             return
         }
-        if (isPlaying()) {
+        if (!paused) {
             try {
                 player?.pause()
             } catch (_: Exception) {
             }
+            paused = true
             stopTicker()
             btnPlay.text = getString(R.string.play)
         }
@@ -693,6 +721,7 @@ class MainActivity : Activity() {
     }
 
     private fun releasePlayer() {
+        paused = true
         stopTicker()
         try {
             player?.stop()
