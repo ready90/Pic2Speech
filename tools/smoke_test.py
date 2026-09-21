@@ -121,6 +121,62 @@ try:
 except Exception as _e:                                            # noqa: BLE001
     check("中文文本+法语音色 ⇒ 自动兜底出音频", False, str(_e)[:90])
 
+# =========================================================================== #
+# 回归：多语言（2026-09-21 第二轮，26 种语言实测后加严）
+#
+# 实测暴露两个真纰漏：
+#   ① 音色与文字不匹配时 edge-tts **不一定报错** —— 实测英文音色念
+#      阿拉伯文/泰文/俄文会「成功」产出恒定 0.9s / 10.7KB 的空音频；
+#      念希腊文则按拉丁字母硬读出 3 倍长的错音（46.6s vs 正常 12.9s）。
+#      旧逻辑只捕获异常，这两种都被静默放过。
+#   ② glm-4v-flash 翻译服从率低：26 种语言里 5 种要补译、1 种（俄语）补译也失败。
+# 修法：文字系统识别 + 音色自动匹配 + 合成后音频体积校验 + 「OCR/翻译」分工。
+# =========================================================================== #
+check("script_of 俄文 → ru", vision.script_of("Добро пожаловать") == "ru")
+check("script_of 阿拉伯文 → ar", vision.script_of("مرحبا بكم") == "ar")
+check("script_of 希伯来文 → he", vision.script_of("ברוכים הבאים") == "he")
+check("script_of 天城文 → hi", vision.script_of("स्वागत है") == "hi")
+check("script_of 泰文 → th", vision.script_of("ยินดีต้อนรับ") == "th")
+check("script_of 希腊文 → el", vision.script_of("Καλώς ήρθατε") == "el")
+check("script_of 格鲁吉亚文 → ka", vision.script_of("მოგესალმებით") == "ka")
+
+check("要英语却回俄语 ⇒ 需补译", vision.needs_translate("Добро пожаловать", "en-US"))
+check("要俄语+俄文 ⇒ 不补译", not vision.needs_translate("Добро пожаловать", "ru-RU"))
+check("要泰语+阿拉伯文 ⇒ 需补译", vision.needs_translate("مرحبا", "th-TH"))
+
+_mix = "欢迎光临！Добро пожаловать! Наш магазин работает."
+check("剥离夹带原文后无汉字",
+      not vision.has_cjk(vision.strip_cjk_fragments(_mix)))
+
+check("空音频(10.7KB/50字)判为失败", not api._audio_size_ok(10957, 50))
+check("正常音频(92KB/50字)判为通过", api._audio_size_ok(94310, 50))
+check("硬念音频(278KB/50字)判为失败", not api._audio_size_ok(284672, 50))
+
+check("音色表无空音色",
+      not [L for L in v["languages"] if not (L.get("voices") or [])])
+check("按文字系统找到俄语音色", api._voice_for_script("ru").startswith("ru-"))
+check("按文字系统找到阿拉伯音色", api._voice_for_script("ar").startswith("ar-"))
+check("按文字系统找到希腊音色", api._voice_for_script("el").startswith("el-"))
+
+for _t, _w, _sc in [("مرحبا بكم", "en-US-AriaNeural", "ar"),
+                    ("ยินดีต้อนรับ", "en-US-AriaNeural", "th"),
+                    ("Καλώς ήρθατε", "en-US-AriaNeural", "el"),
+                    ("Добро пожаловать", "fr-FR-DeniseNeural", "ru")]:
+    _vo, _no = api._pick_voice("trans", _t, _w, api._find_lang("en-US"))
+    check("错配音色自动纠正:%s" % _sc,
+          api._voice_lang(_vo) in vision.SCRIPT_VOICE_PREFIXES[_sc], _vo)
+
+# 真实合成：错配音色也必须出正常音频，而不是 10.7KB 的空音频
+try:
+    _m, _s, _u, _nn = api._synthesize_safe(
+        "مرحبا بكم في متجرنا", "en-US-AriaNeural", 0, tmp, "smoke_ar",
+        api._find_lang("ar-SA"))
+    check("阿拉伯文+英文音色 ⇒ 兜底出正常音频",
+          os.path.getsize(_m) > 13000,
+          "%s %.1fKB" % (_u, os.path.getsize(_m) / 1024.0))
+except Exception as _e2:                                            # noqa: BLE001
+    check("阿拉伯文+英文音色 ⇒ 兜底出正常音频", False, str(_e2)[:90])
+
 print()
 print("RESULT:", "ALL PASS" if all(results) else "FAILED",
       "(%d/%d)" % (sum(results), len(results)))

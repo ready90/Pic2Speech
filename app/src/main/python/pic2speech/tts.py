@@ -3,6 +3,11 @@
 
 输出 MP3 + 同步 SRT 字幕。
 分块、字幕拼装等逻辑与电脑版 core.py 完全一致（那套已调通并修过两个 bug）。
+
+★ 2026-09-21 多语言实测后加固：
+   个别语言（实测印地语出现过）的 WordBoundary 时间戳会整体偏大百倍，
+   导致 SRT 显示成 12 分钟、而音频其实只有 5 秒。这里用音频体积反推
+   真实时长做校正 —— 音频本身不受影响，只是让字幕/进度条别再乱跳。
 """
 import asyncio
 import os
@@ -14,6 +19,11 @@ import edge_tts
 
 _SUB_PUNCT = "。！？；，、,.!?;…:：'\"“”‘’()【】（）"
 _MAX_LEN = 1200
+
+# edge-tts 输出 24kHz/48kbps 单声道 MP3 ≈ 6.2 KB/s（各语言实测一致），
+# 用它由音频体积反推"这段音频大概多长"，用于校正异常的 SRT 时间轴。
+_BYTES_PER_SEC = 6200.0
+
 
 # --------------------------------------------------------------------------- #
 # 文本清洗 + 切分
@@ -92,6 +102,26 @@ def _glue_word(buf, w):
     if p.isalnum() and w[0].isalnum():
         return buf + " " + w
     return buf + w
+
+
+def _rescale_subs(subs, nbytes):
+    """时间轴异常时按音频真实体积整体缩放。
+
+    某些语言的时间戳会整体偏大百倍（出现 12 分钟的字幕配 5 秒音频），
+    这里用体积反推时长，偏差超过 2.5 倍才动手，正常情况原样返回。
+    """
+    if not subs:
+        return subs
+    guess = (nbytes or 0) / _BYTES_PER_SEC
+    if guess <= 0:
+        return subs
+    last = subs[-1][1]
+    if last <= 0:
+        return subs
+    if last > guess * 2.5 or last < guess * 0.2:
+        k = guess / last
+        return [(s * k, e * k, t) for s, e, t in subs]
+    return subs
 
 
 def _write_srt(subs, srt_path):
@@ -217,6 +247,7 @@ def synthesize(text, voice, rate, out_dir, tag="audio"):
     chunks = split_text(text)
 
     audio, subs = _run_async(_run_all(chunks, voice, int(rate), out_dir))
+    subs = _rescale_subs(subs, len(audio))
 
     with _seq_lock:
         _seq += 1
