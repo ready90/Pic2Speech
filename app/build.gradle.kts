@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -33,8 +35,17 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = "17"
+    // 注意：这里不能用 android { kotlinOptions { jvmTarget = "17" } }。
+    // Kotlin 2.2.0 起 kotlinOptions{} 的弃用等级已提升为 error，编译直接失败。
+    // jvmTarget 改为在下面的顶层 kotlin { compilerOptions { } } 里设置。
+}
+
+// Kotlin 2.x 的新写法（必须放在顶层，不能放进 android {} 块里）。
+// 必须与上面 compileOptions 的 Java 17 保持一致，否则 AGP 会报
+// "Inconsistent JVM-target compatibility detected"。
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
     }
 }
 
@@ -56,6 +67,7 @@ dependencies {
 //
 //   - buildPython 必须与上面的 3.13 一致（CI 里由 setup-python 提供 python3.13）
 //   - Chaquopy 的原生库都是预编译好的，无需安装 Android NDK
+//   - Chaquopy 17 官方要求：minSdk >= 24 ✓，AGP 在 7.3.x ~ 9.2.x 之间 ✓（本项目 8.7.3）
 // ---------------------------------------------------------------------------
 chaquopy {
     defaultConfig {
