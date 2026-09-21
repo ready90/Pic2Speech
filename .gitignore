@@ -17,6 +17,10 @@ dist/
 __pycache__/
 *.pyc
 
+# 构建时由 CI 从 GitHub Secret 生成的 API Key（绝不入库）
+app/src/main/python/pic2speech/_secret.py
+_secret.py
+
 # 临时日志
 tools/*.log
 tools/tree.txt

@@ -147,6 +147,7 @@ class MainActivity : Activity() {
         status("正在加载音色表…", false)
         Thread {
             try {
+                loadBuiltinKey()
                 val root = JSONObject(PyBridge.voicesJson())
                 val arr = root.getJSONArray("languages")
                 val list = ArrayList<Lang>()
@@ -459,6 +460,29 @@ class MainActivity : Activity() {
             etKey.setText(k)
             tvKeyMsg.text = "已读取本机保存的 Key"
             tvKeyMsg.setTextColor(getColor(R.color.muted))
+        }
+    }
+
+    /**
+     * 本机没存过 Key 时，读取 App 内置的 Key 自动填入。
+     * 内置 Key 由 CI 从仓库 Secret 注入，用不着用户手输；没配就静默跳过。
+     * 必须在后台线程调用（会触发 Python 初始化）。
+     */
+    private fun loadBuiltinKey() {
+        if (etKey.text.toString().trim().length >= 20) return
+        try {
+            val o = PyBridge.defaultKey()
+            val k = o.optString("key", "")
+            if (!o.optBoolean("ok", false) || k.length < 20) return
+            prefs.edit().putString("api_key", k).apply()
+            runOnUiThread {
+                etKey.setText(k)
+                tvKeyMsg.text = "已内置 Key（" + o.optString("masked", "") +
+                        "），可直接使用；也可粘贴你自己的 Key 覆盖"
+                tvKeyMsg.setTextColor(getColor(R.color.ok))
+            }
+        } catch (_: Exception) {
+            // 没有内置 Key 或 Python 尚未就绪：保持手动输入
         }
     }
 

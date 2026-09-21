@@ -8,7 +8,7 @@ import json
 import os
 import re
 
-from . import tts, vision
+from . import config, tts, vision
 
 _VOICES_PATH = os.path.join(os.path.dirname(__file__), "voices.json")
 
@@ -19,6 +19,23 @@ def voices_json():
     """内置音色表（原样返回 JSON 文本，供界面填充语言/音色下拉框）"""
     with open(_VOICES_PATH, encoding="utf-8") as f:
         return f.read()
+
+
+def default_key():
+    """App 内置的默认 API Key（界面启动时预填输入框用）。
+
+    内置 Key 由 CI 从仓库 Secret 生成到 _secret.py，不进代码仓库；
+    没有配置时返回 builtin=False，界面会提示手动填写。
+    """
+    try:
+        return json.dumps({
+            "ok": True,
+            "key": config.DEFAULT_API_KEY,
+            "masked": config.masked(),
+            "builtin": config.has_builtin_key(),
+        }, ensure_ascii=False)
+    except Exception as e:                                    # noqa: BLE001
+        return _err(e)
 
 
 def _load_voices():
@@ -97,6 +114,9 @@ def generate(image_paths, lang_code, voice, rate, mode, detail, api_key, out_dir
             return _err("没有收到图片")
 
         key = str(api_key or "").strip()
+        if len(key) < 20:
+            # 界面没填就退回 App 内置的 Key
+            key = config.DEFAULT_API_KEY
         if len(key) < 20:
             return _err("请先填写智谱 API Key（免费申请 open.bigmodel.cn）")
 

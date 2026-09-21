@@ -30,6 +30,12 @@ object PyBridge {
     fun voicesJson(): String = api().callAttr("voices_json").toString()
 
     /**
+     * 读取 App 内置的默认 API Key（构建时由仓库 Secret 注入）。
+     * @return {"ok":true,"key":"...","masked":"40edcc***ie1Gq","builtin":true}
+     */
+    fun defaultKey(): JSONObject = JSONObject(api().callAttr("default_key").toString())
+
+    /**
      * 完整流程：图片理解 + 语音合成
      * @return {"ok":true,"text":...,"mp3":...,"srt":...,"note":...}
      *         或 {"ok":false,"error":"..."}
