@@ -256,7 +256,8 @@ class MainActivity : Activity() {
         pickedUris.clear()
         val clip = data.clipData
         if (clip != null) {
-            for (i in 0 until minOf(clip.count, MAX_IMAGES)) {
+            // ClipData 没有 count 属性，正确的是 itemCount（即 getItemCount()）
+            for (i in 0 until minOf(clip.itemCount, MAX_IMAGES)) {
                 pickedUris.add(clip.getItemAt(i).uri)
             }
         } else {
