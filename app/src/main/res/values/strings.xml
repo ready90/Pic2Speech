@@ -17,6 +17,15 @@
     <string name="text_hint">识别完成后这里会显示文字稿</string>
     <string name="resynth">仅重新合成</string>
     <string name="play">▶ 播放</string>
+    <string name="pause">⏸ 暂停</string>
     <string name="share">分享</string>
     <string name="stop">■ 停止</string>
+
+    <!-- 播放器面板 -->
+    <string name="player_time">00:00 / 00:00</string>
+    <string name="back5">« 5 秒</string>
+    <string name="fwd5">5 秒 »</string>
+    <string name="player_speed">倍速</string>
+    <string name="player_speed_val">1.0x</string>
+    <string name="open_player">系统播放器</string>
 </resources>

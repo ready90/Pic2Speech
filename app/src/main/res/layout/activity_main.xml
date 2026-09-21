@@ -234,6 +234,108 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
+        <!-- ================= 播放器面板 =================
+             生成出音频后才显示；进度可拖动、可调倍速、可暂停继续 -->
+        <LinearLayout
+            android:id="@+id/playerBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_player"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/player_time"
+                android:textColor="@color/brand_dark"
+                android:textSize="12sp" />
+
+            <SeekBar
+                android:id="@+id/sbPos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="0" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnBack5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:text="@string/back5"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btnFwd5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:text="@string/fwd5"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btnExternal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:text="@string/open_player"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/player_speed"
+                    android:textColor="@color/muted"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/sbSpeed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:max="15"
+                    android:progress="5" />
+
+                <TextView
+                    android:id="@+id/tvSpeed"
+                    android:layout_width="46dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/player_speed_val"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
         <TextView
             android:id="@+id/tvResult"
             android:layout_width="match_parent"
