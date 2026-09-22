@@ -44,9 +44,12 @@ git push -u origin main
 
 ## 二、首次使用
 
-1. 打开 App，填**智谱 API Key**后点"保存"（只需一次）
+1. **先填你自己的智谱 API Key**：打开 App 顶部会有一条黄色提示条，
+   往下滚到「智谱 API Key」，粘贴后点"保存"（只需一次）
    - 免费申请：https://open.bigmodel.cn （模型 `glm-4v-flash` 免费不限量）
    - 智谱的 Key 是**无前缀的 40~50 位字符串**，不是 `sk-` 开头
+   - **本 App 不内置任何 Key**：所以这个 APK 给谁装都可以，你的额度不会被别人用掉
+   - Key 只存在手机本机的 App 私有存储里，调用时由手机**直连智谱**，不经过任何中间服务器
 2. 点 **① 选择图片**（可多选，最多 8 张）
 3. 选 **目标语言** 与 **音色**
 4. 点 **③ 生成音频**（约 5~60 秒）
@@ -106,8 +109,38 @@ git push -u origin main
     ├── gen_voices.py                   联网刷新音色表
     ├── make_icons.py                   生成启动图标
     ├── smoke_test.py                   Python 侧冒烟测试
-    └── check_resources.py              资源引用一致性校验
+    ├── check_resources.py              资源引用一致性校验
+    └── verify_no_key.py                ★ 安全闸门：确认 APK 内不含 API Key
 ```
+
+---
+
+## 四之二、为什么这个包里没有你的 Key（安全设计）
+
+APK **本质是 zip**，Chaquopy 的 `assets/chaquopy/app.imy` 也是 zip，
+两层双击即可进入。早先版本把 Key 注入成 `pic2speech/_secret.py`，
+那是个**明文 Python 源码文件** —— 也就是说，任何拿到 APK 的人，
+在电脑上这样操作就能看到它（不需要安卓手机，也不需要反编译工具）：
+
+```bash
+unzip Pic2Speech.apk assets/chaquopy/app.imy
+unzip assets/chaquopy/app.imy pic2speech/_secret.py
+cat pic2speech/_secret.py          # ← Key 就在眼前
+```
+
+**只要 Key 进了包，就等于公开。** 混淆、加密、藏进 native 库都只是提高门槛：
+解密的逻辑必须也在客户端里，最终总要在运行时还原成明文。
+
+所以本工程从 **v1.6** 起改为**不内置任何 Key**：
+
+| 环节 | 做法 |
+|---|---|
+| 构建 | CI **不再注入** Key，改为校验源码树里不存在 `_secret.py` |
+| 产物 | 构建后用 `tools/verify_no_key.py` 拆包扫描，**只要翻出 Key 形态的字符串就让这次构建失败** |
+| 运行 | Key 由用户自己粘贴，保存在手机本机（App 私有存储），直连智谱 |
+| 善后 | 曾经内置过 Key 的旧包请弃用；那把 Key 应去智谱后台**吊销并重建** |
+
+> 顺带一个好处：现在这个 APK 可以放心地发给任何人 —— 你的额度不会被别人用掉。
 
 ---
 
@@ -122,6 +155,7 @@ git push -u origin main
 | `max_tokens = 1024` | GLM-4V-Flash 的硬上限，超过会报 400/1210 |
 | 界面只用**系统原生控件**（除 FileProvider） | 不引入 UI 框架，减少编译期风险，APK 更小 |
 | 跨语言全部走**字符串 / JSON** | 避开二进制数组跨 JNI 传递的兼容问题，出错只返回中文消息，不崩溃 |
+| **不内置 API Key**，改由用户自己在界面填写 | APK 与 `.imy` 都是 zip，内置的凭据零门槛可提取（详见"四之二"）；不内置后，这个包给谁装都不会消耗你的额度 |
 
 ---
 

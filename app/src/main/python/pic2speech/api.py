@@ -49,14 +49,15 @@ def voices_json():
 
 
 def default_key():
-    """App 内置的默认 API Key（界面启动时预填输入框用）。
+    """App 里是否内置了默认 API Key（界面启动时预填输入框用）。
 
-    内置 Key 由 CI 从仓库 Secret 生成到 _secret.py，不进代码仓库；
-    没有配置时返回 builtin=False，界面会提示手动填写。
+    自 v1.6 起**恒为「未内置」**：Key 改由用户在界面上自行粘贴，只存手机本机。
+    （早期做法是 CI 从仓库 Secret 生成 _secret.py 打进包，但 APK 内的任何凭据
+      都能被零门槛提取出来，那条路已废弃，详见 README「安全设计」。）
     """
     try:
         return json.dumps({
-            "ok": True,
+            "ok": config.has_builtin_key(),
             "key": config.DEFAULT_API_KEY,
             "masked": config.masked(),
             "builtin": config.has_builtin_key(),

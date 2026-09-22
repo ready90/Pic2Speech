@@ -12,6 +12,11 @@
     <string name="label_rate">语速</string>
     <string name="save_key">保存</string>
     <string name="key_hint">粘贴智谱 API Key（免费申请 open.bigmodel.cn）</string>
+
+    <!-- 首次使用引导：App 不内置任何 Key，需要用户自己填一次 -->
+    <string name="key_notice">提示：第一次使用，请往下滚到「智谱 API Key」处，粘贴你自己的 Key 并点保存。\nKey 只存在这台手机的本机存储里，调用时由本机直连智谱；App 不内置、不上传、不经手任何人的 Key。</string>
+    <string name="key_need_first">请先填写智谱 API Key（已定位到输入框）</string>
+    <string name="key_saved_hint">已保存到本机，无需重复填写</string>
     <string name="generate">③ 生成音频（识别 + 合成）</string>
     <string name="label_text">识别结果（可编辑，改完点“仅重新合成”）</string>
     <string name="text_hint">识别完成后这里会显示文字稿</string>

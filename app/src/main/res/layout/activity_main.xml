@@ -19,6 +19,20 @@
             android:textSize="13sp"
             android:lineSpacingExtra="3dp" />
 
+        <!-- 首次使用提示：没有内置 Key，必须自己填一次才看得见 -->
+        <TextView
+            android:id="@+id/keyNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_notice"
+            android:lineSpacingExtra="2dp"
+            android:padding="10dp"
+            android:text="@string/key_notice"
+            android:textColor="@color/warn_text"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
         <!-- ① 选择图片 -->
         <LinearLayout
             android:layout_width="match_parent"

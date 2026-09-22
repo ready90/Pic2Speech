@@ -4,12 +4,29 @@
 
 | 版本 | APK | 做了什么 |
 |---|---|---|
+| **v1.6** | `Pic2Speech-v1.6-nokey-debug.apk` | **不再内置任何 API Key**：Key 改由用户在 App 里自己填、只存手机本机。CI 不再注入；新增拆包闸门 —— 产物里只要翻出 Key 形态的字符串就让构建失败。首次进入有提示条引导填 Key。`versionCode=6 / versionName=1.6` |
 | **v1.5** | `Pic2Speech-v1.5-player-debug.apk` | **内置播放器**：暂停/继续、拖动进度条定位、倍速 0.5x~2.0x、前后跳 5 秒、一键交给系统默认播放器；倍速会被记住，重开 App 仍可播放上次音频。`versionCode=5 / versionName=1.5` |
 | v1.4 | `Pic2Speech-v1.4-i18n-debug.apk` | 修「非拉丁文字偶发失败」：翻译改为最多 3 次重试 + 强指令；37 语言实测通过 |
 | v1.3 | （已删） | 修两类**静默失败**：音色与文字系统不匹配时产出空音频/乱念；视觉模型不服从"翻译"指令 → 改成「视觉只 OCR + 文本模型翻译」 |
 | v1.2 | （已删） | 修法语"翻译朗读失败" |
 | v1.1 | （已删） | 内置智谱 API Key（构建时从仓库 Secret 注入），装完即用 |
 | v1.0 | （已删） | 首个可安装版本（Chaquopy + edge-tts + GLM-4V） |
+
+## v1.6 改动清单
+
+| 文件 | 改动 |
+|---|---|
+| `.github/workflows/build-apk.yml` | 删掉「注入内置 API Key」步骤；新增「确认源码树不含 `_secret.py`」「校验产物中不含 API Key」两道闸门 |
+| `tools/verify_no_key.py` | **新增**：递归拆开 APK（含嵌套 `.imy` 与 dex），扫描 Key 形态字符串，命中即让构建失败 |
+| `tools/inject_key.py` | 默认**不再写入任何真实 Key**；只有显式加 `--allow-embed` 才会内置，并打印醒目警告 |
+| `app/src/main/python/pic2speech/config.py` | 口径改为「恒为空」，写明为何不再内置 |
+| `app/src/main/python/pic2speech/api.py` | `default_key()` 的 `ok` 改为反映「是否内置」，语义不再误导 |
+| `MainActivity.kt` | 新增 `refreshKeyNotice()` / `scrollToKey()`：没填 Key 时顶部亮提示条，点生成会自动滚到输入框并聚焦；`loadBuiltinKey()` 改为「万一检出内置 Key 就警告别外传」 |
+| `res/layout/activity_main.xml` | 顶部新增提示条 `keyNotice` |
+| `res/drawable/bg_notice.xml` | 提示条底（新增） |
+| `res/values/colors.xml` / `strings.xml` | 新增提示条配色与 3 条文案 |
+| `app/build.gradle.kts` | `versionCode 5→6`、`versionName 1.5→1.6` |
+| `README.md` | 新增「为什么这个包里没有你的 Key」整节；首次使用说明改为必填 Key |
 
 ## v1.5 改动清单
 

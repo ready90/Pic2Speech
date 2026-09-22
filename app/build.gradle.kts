@@ -14,8 +14,8 @@ android {
         applicationId = "com.pic2speech.app"
         minSdk = 24                 // Chaquopy 硬性要求 >= 24
         targetSdk = 34
-        versionCode = 5
-        versionName = "1.5"
+        versionCode = 6
+        versionName = "1.6"
 
         // Python 解释器是原生组件，需指定 ABI。
         // arm64-v8a = 真机；x86_64 = 模拟器。只留 64 位可显著减小体积。

@@ -34,6 +34,7 @@ class MainActivity : Activity() {
     private lateinit var tvRate: TextView
     private lateinit var etKey: EditText
     private lateinit var tvKeyMsg: TextView
+    private lateinit var keyNotice: TextView
     private lateinit var btnGen: Button
     private lateinit var tvStatus: TextView
     private lateinit var etText: EditText
@@ -125,6 +126,7 @@ class MainActivity : Activity() {
         tvRate = findViewById(R.id.tvRate)
         etKey = findViewById(R.id.etKey)
         tvKeyMsg = findViewById(R.id.tvKeyMsg)
+        keyNotice = findViewById(R.id.keyNotice)
         btnGen = findViewById(R.id.btnGen)
         tvStatus = findViewById(R.id.tvStatus)
         etText = findViewById(R.id.etText)
@@ -324,8 +326,9 @@ class MainActivity : Activity() {
                 tvKeyMsg.setTextColor(getColor(R.color.err))
             } else {
                 prefs.edit().putString("api_key", k).apply()
-                tvKeyMsg.text = "已保存到本机，无需重复填写"
+                tvKeyMsg.text = getString(R.string.key_saved_hint)
                 tvKeyMsg.setTextColor(getColor(R.color.ok))
+                refreshKeyNotice()
             }
         }
         btnGen.setOnClickListener { doGenerate() }
@@ -401,7 +404,7 @@ class MainActivity : Activity() {
         val key = prefs.getString("api_key", "") ?: ""
         status(
             if (key.length >= 20) "环境就绪：点①选图片，点③开始生成"
-            else "环境就绪：请先填写智谱 API Key",
+            else "第一次使用：请先填写你的智谱 API Key（页面顶部有提示）",
             false
         )
     }
@@ -481,7 +484,8 @@ class MainActivity : Activity() {
     private fun doGenerate() {
         val key = etKey.text.toString().trim()
         if (key.length < 20) {
-            status("请先填写智谱 API Key 并点“保存”", true)
+            status(getString(R.string.key_need_first), true)
+            scrollToKey()
             return
         }
         if (pickedUris.isEmpty()) {
@@ -787,11 +791,39 @@ class MainActivity : Activity() {
             tvKeyMsg.text = "已读取本机保存的 Key"
             tvKeyMsg.setTextColor(getColor(R.color.muted))
         }
+        refreshKeyNotice()
+    }
+
+    /** 没填 Key 就把顶部提示条亮出来；填好了就收起来 */
+    private fun refreshKeyNotice() {
+        val has = etKey.text.toString().trim().length >= 20
+        keyNotice.visibility = if (has) View.GONE else View.VISIBLE
     }
 
     /**
-     * 本机没存过 Key 时，读取 App 内置的 Key 自动填入。
-     * 内置 Key 由 CI 从仓库 Secret 注入，用不着用户手输；没配就静默跳过。
+     * 把视线引导到 Key 输入框。
+     * 输入框排在页面偏下的位置，第一次用不一定看得到，
+     * 所以这里主动滚过去 + 拉起焦点（焦点会让系统再补一次滚动）。
+     */
+    private fun scrollToKey() {
+        keyNotice.visibility = View.VISIBLE
+        etKey.requestFocus()
+        var p: android.view.ViewParent? = etKey.parent
+        while (p != null) {
+            if (p is android.widget.ScrollView) {
+                // 先固定成不可变引用：可变局部变量被闭包捕获后无法智能转换
+                val sv = p
+                sv.post { sv.smoothScrollTo(0, etKey.top) }
+                return
+            }
+            p = p.parent
+        }
+    }
+
+    /**
+     * 兼容保留：早期版本由 CI 把 Key 注入 `_secret.py` 打进 APK，
+     * 那条路已废弃 —— 内置进包的 Key 可被零门槛提取（见 README 安全设计）。
+     * 现在 Python 侧恒返回空 Key，这里会静默跳过，改由用户自己填写。
      * 必须在后台线程调用（会触发 Python 初始化）。
      */
     private fun loadBuiltinKey() {
@@ -800,12 +832,12 @@ class MainActivity : Activity() {
             val o = PyBridge.defaultKey()
             val k = o.optString("key", "")
             if (!o.optBoolean("ok", false) || k.length < 20) return
-            prefs.edit().putString("api_key", k).apply()
+            // 正常构建不会走到这里。真走到了说明有人又往包里塞了 Key，
+            // 那就得提醒"这个安装包别转发他人"，而不是默默用掉。
             runOnUiThread {
-                etKey.setText(k)
-                tvKeyMsg.text = "已内置 Key（" + o.optString("masked", "") +
-                        "），可直接使用；也可粘贴你自己的 Key 覆盖"
-                tvKeyMsg.setTextColor(getColor(R.color.ok))
+                tvKeyMsg.text = "注意：本安装包内置了 Key（" +
+                        o.optString("masked", "") + "），请勿转发给他人"
+                tvKeyMsg.setTextColor(getColor(R.color.err))
             }
         } catch (_: Exception) {
             // 没有内置 Key 或 Python 尚未就绪：保持手动输入
